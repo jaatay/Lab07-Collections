@@ -8,7 +8,7 @@ namespace Collections
     {
         T[] items = new T[16];
 
-        int count;
+        public int count;
 
         /// <summary>
         /// add card to deck
@@ -29,24 +29,41 @@ namespace Collections
         /// subtracts last card from the array
         /// </summary>
         /// <param name="item">a enumerable type item</param>
-        public void Subtract(T item)
+        public bool Subtract(T item)
         {
-            items[--count] = item;
-            Array.Resize(ref items, items.Length - 1);
+            if (item == null)
+            {
+                return false;
+            }
+            else
+            {
+                items[--count] = item;
+                Array.Resize(ref items, items.Length - 1);
+                return true;
+            }
            
         }
 
         /// <summary>
         /// shuffles deck based on random index numbers
         /// </summary>
-        public void Shuffle()
+        public bool Shuffle()
         {
-            for (int i = 0; i < count; i++)
+            try
             {
-                Random random = new Random();
-                int randomNumber = random.Next(0, count);
+                for (int i = 0; i < count; i++)
+                {
+                    Random random = new Random();
+                    int randomNumber = random.Next(0, count);
 
-                items[i] = items[randomNumber];
+                    items[i] = items[randomNumber];
+                }
+
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 

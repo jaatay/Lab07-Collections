@@ -8,18 +8,17 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-           
             Deal();
+            TTFN();
         }
 
         /// <summary>
-        /// card creation
+        /// method to create deck and show working methods in console
         /// </summary>
-        /// 
-        static void Deal()
+        public static void Deal()
         {
 
-            //initialize
+            //each new card is initialized here
             CardType card1 = new CardType
             {
                 Suite = Suite.Spades,
@@ -108,6 +107,7 @@ namespace Collections
                 Value = Value.Queen
             };
 
+            //initialized cards are put into new deck list
             Deck<CardType> myDeck = new Deck<CardType>
         {
             card1,
@@ -127,6 +127,7 @@ namespace Collections
             card15
         };
 
+            //prints default deck to console
             Console.WriteLine("--Default Deck--");
 
             foreach(var item in myDeck)
@@ -134,12 +135,11 @@ namespace Collections
                 Console.WriteLine($"{item.Suite} {item.Value}");
             }
 
+            //shuffles deck and prints new deck to console
+            myDeck.Shuffle();
+
             Console.WriteLine("----------------------------");
             Console.WriteLine("--Shuffled deck--");
-
-
-            //shuffle
-            myDeck.Shuffle();
 
             foreach (var item in myDeck)
             {
@@ -152,26 +152,33 @@ namespace Collections
                 Value = Value.Ace
             };
 
-
-            //add
+            //adds new card to deck and prints new deck to console
             myDeck.Add(card16);
 
-            Console.WriteLine("--Deck with added card--");
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("--Deck with new added card at the bottom--");
 
             foreach (var item in myDeck)
             {
                 Console.WriteLine($"{item.Suite} {item.Value}");
             }
 
-            //subtract
+            //subtracts new card from deck and prints new deck to console
             myDeck.Subtract(card16);
 
-            Console.WriteLine("--Deck with subtracted card--");
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("--Deck with new card subtracted from bottom--");
 
             foreach (var item in myDeck)
             {
                 Console.WriteLine($"{item.Suite} {item.Value}");
             }
+        }
+
+        public static void TTFN()
+        {
+            Console.WriteLine("Thanks for visiting.");
+            Console.WriteLine("Press any key to exit.");
         }
     }
 }

@@ -8,14 +8,17 @@ namespace Collections
 {
     public class CardType
     {
-        
+        /// <summary>
+        /// getters and setters for card values
+        /// </summary>
         public Suite Suite { get; set; }
         public Value Value { get; set; }
-       
 
-      
     }
 
+    /// <summary>
+    /// enumerator values for Suite type
+    /// </summary>
     public enum Suite
     {
         Hearts,
@@ -24,6 +27,9 @@ namespace Collections
         Clubs
     }
 
+    /// <summary>
+    /// enumerator values for Value type
+    /// </summary>
     public enum Value
     {
         One = 1,
