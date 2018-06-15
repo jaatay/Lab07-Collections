@@ -25,13 +25,20 @@ namespace Collections
             items[count++] = item;
         }
 
+        /// <summary>
+        /// subtracts last card from the array
+        /// </summary>
+        /// <param name="item">a enumerable type item</param>
         public void Subtract(T item)
         {
-           
+            items[--count] = item;
             Array.Resize(ref items, items.Length - 1);
-            items[count--] = item;
+           
         }
 
+        /// <summary>
+        /// shuffles deck based on random index numbers
+        /// </summary>
         public void Shuffle()
         {
             for (int i = 0; i < count; i++)
@@ -39,9 +46,7 @@ namespace Collections
                 Random random = new Random();
                 int randomNumber = random.Next(0, count);
 
-               
                 items[i] = items[randomNumber];
-               
             }
         }
 
@@ -56,7 +61,6 @@ namespace Collections
                 yield return items[i];
             }
         }
-
 
         /// <summary>
         /// magic method
