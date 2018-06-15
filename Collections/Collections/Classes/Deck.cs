@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Collections
 {
-    public class Deck<T> : IEnumerable
+    public class Deck<T> : IEnumerable<T>
     {
         T[] items = new T[16];
 
@@ -25,6 +25,16 @@ namespace Collections
             items[count++] = item;
         }
 
+        public void Subtract(T item)
+        {
+
+        }
+
+        public void Shuffle()
+        {
+
+        }
+
         /// <summary>
         /// enumerator interface
         /// </summary>
@@ -37,15 +47,6 @@ namespace Collections
             }
         }
 
-        public IEnumerable<T> Shuffle() 
-        {
-            Random shuffleValue = new Random();
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine(items[i]);
-                yield return items[shuffleValue.Next(0, count)];
-            }
-        }
 
         /// <summary>
         /// magic method

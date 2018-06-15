@@ -132,17 +132,7 @@ namespace Collections
                 Console.WriteLine($"{item.Suite} {item.Value}");
             }
 
-            Console.WriteLine("-----------------");
 
-            /*
-            Console.WriteLine("Shuffled Deck");
-            myDeck.Shuffle();
-
-            foreach (var item in myDeck)
-            {
-                Console.WriteLine($"{item.Suite} {item.Value}");
-            }
-            */
         }
     }
 }
