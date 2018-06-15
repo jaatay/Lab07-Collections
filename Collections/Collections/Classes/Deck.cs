@@ -27,12 +27,22 @@ namespace Collections
 
         public void Subtract(T item)
         {
-
+           
+            Array.Resize(ref items, items.Length - 1);
+            items[count--] = item;
         }
 
         public void Shuffle()
         {
+            for (int i = 0; i < count; i++)
+            {
+                Random random = new Random();
+                int randomNumber = random.Next(0, count);
 
+               
+                items[i] = items[randomNumber];
+               
+            }
         }
 
         /// <summary>

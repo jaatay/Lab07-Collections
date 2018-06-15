@@ -9,15 +9,17 @@ namespace Collections
         static void Main(string[] args)
         {
            
-            CreateDeck();
+            Deal();
         }
 
         /// <summary>
         /// card creation
         /// </summary>
         /// 
-        static void CreateDeck()
+        static void Deal()
         {
+
+            //initialize
             CardType card1 = new CardType
             {
                 Suite = Suite.Spades,
@@ -125,14 +127,51 @@ namespace Collections
             card15
         };
 
-            Console.WriteLine("Default Deck");
+            Console.WriteLine("--Default Deck--");
 
             foreach(var item in myDeck)
             {
                 Console.WriteLine($"{item.Suite} {item.Value}");
             }
 
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("--Shuffled deck--");
 
+
+            //shuffle
+            myDeck.Shuffle();
+
+            foreach (var item in myDeck)
+            {
+                Console.WriteLine($"{item.Suite} {item.Value}");
+            }
+
+            CardType card16 = new CardType
+            {
+                Suite = Suite.Clubs,
+                Value = Value.Ace
+            };
+
+
+            //add
+            myDeck.Add(card16);
+
+            Console.WriteLine("--Deck with added card--");
+
+            foreach (var item in myDeck)
+            {
+                Console.WriteLine($"{item.Suite} {item.Value}");
+            }
+
+            //subtract
+            myDeck.Subtract(card16);
+
+            Console.WriteLine("--Deck with subtracted card--");
+
+            foreach (var item in myDeck)
+            {
+                Console.WriteLine($"{item.Suite} {item.Value}");
+            }
         }
     }
 }
